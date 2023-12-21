@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MovementP : MonoBehaviour
 {
-    public new Rigidbody2D rigidbody2D { get; private set; }
+    public new Rigidbody2D rigidbody { get; private set; }
 
-    private Vector2 direction = Vector2.zero;
+    private Vector2 direction = Vector2.down;
 
     public float speed = 5f;
 
@@ -15,44 +15,51 @@ public class MovementP : MonoBehaviour
     public KeyCode inputLeft = KeyCode.A;
     public KeyCode inputRight = KeyCode.D;
 
+    public AnimatedSpriteRenderer spriteRendererUp;
+    public AnimatedSpriteRenderer spriteRendererDown;
+    public AnimatedSpriteRenderer spriteRendererLeft;
+    public AnimatedSpriteRenderer spriteRendererRight;
+    private AnimatedSpriteRenderer activeSpriteRenderer;
+
     private void Awake()
     {
-        rigidbody2D = GetComponent<Rigidbody2D>();
+        rigidbody = GetComponent<Rigidbody2D>();
+
+        activeSpriteRenderer = spriteRendererDown;
     }
 
-
-
-    //// Start is called before the first frame update
-    //void Start()
-    //{
-
-    //}
-
-    // Update is called once per frame
     private void Update()
     {
         if (Input.GetKey(inputUp))
-            this.SetDirection(Vector2.up);
+            this.SetDirection(Vector2.up, spriteRendererUp);
         else if (Input.GetKey(inputDown))
-            this.SetDirection(Vector2.down);
+            this.SetDirection(Vector2.down, spriteRendererDown);
         else if (Input.GetKey(inputLeft))
-            this.SetDirection(Vector2.left);
+            this.SetDirection(Vector2.left, spriteRendererLeft);
         else if (Input.GetKey(inputRight))
-            this.SetDirection(Vector2.right);
+            this.SetDirection(Vector2.right, spriteRendererRight);
         else
-            this.SetDirection(Vector2.zero);
+            this.SetDirection(Vector2.zero, activeSpriteRenderer);
     }
 
     private void FixedUpdate()
     {
-        Vector2 postion = rigidbody2D.position;
+        Vector2 postion = rigidbody.position;
         Vector2 translation = direction * speed * Time.fixedDeltaTime;
 
-        rigidbody2D.MovePosition(postion + translation);
+       rigidbody.MovePosition(postion + translation);
     }
 
-    private void SetDirection(Vector2 newDirection)
+    private void SetDirection(Vector2 newDirection, AnimatedSpriteRenderer spriteRenderer)
     {
         direction = newDirection;
+
+        spriteRendererUp.enabled = spriteRenderer == spriteRendererUp;
+        spriteRendererDown.enabled = spriteRenderer == spriteRendererDown;
+        spriteRendererLeft.enabled = spriteRenderer == spriteRendererLeft;
+        spriteRendererRight.enabled = spriteRenderer == spriteRendererRight;
+
+        activeSpriteRenderer = spriteRenderer;
+        activeSpriteRenderer.idle = direction == Vector2.zero;
     }
 }
