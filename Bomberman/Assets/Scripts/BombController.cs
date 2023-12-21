@@ -4,11 +4,17 @@ using UnityEngine;
 
 public class BombController : MonoBehaviour
 {
+    [Header("Bomb")]
     public KeyCode inputKey = KeyCode.Space;
     public GameObject bombPrefab;
     public float bombFuseTime = 3f;
     public int bombAmount = 1;
     private int bombsRemaining;
+
+    [Header("Explosion")]
+    public Explosion explosionPrefab;
+    public float explosionDurantion = 1f;
+    public int explosionRadius = 1;
 
     private void OnEnable()
     {
@@ -33,6 +39,15 @@ public class BombController : MonoBehaviour
         bombsRemaining--;
 
         yield return new WaitForSeconds(bombFuseTime);
+
+        position = bomb.transform.position;
+        position.x = Mathf.Round(position.x);
+        position.y = Mathf.Round(position.y);
+
+
+        //Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        //explosion.SetActiveRenderer(explosion.start);
+        //Destroy(explosion.gameObject, explosionDurantion);
 
         Destroy(bomb);
         bombsRemaining++;
