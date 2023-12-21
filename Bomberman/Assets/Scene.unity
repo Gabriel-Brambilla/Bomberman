@@ -240,6 +240,10 @@ MonoBehaviour:
   inputDown: 115
   inputLeft: 97
   inputRight: 100
+  spriteRendererUp: {fileID: 1554355882}
+  spriteRendererDown: {fileID: 201658504}
+  spriteRendererLeft: {fileID: 2007440016}
+  spriteRendererRight: {fileID: 279955849}
 --- !u!1 &201658501
 GameObject:
   m_ObjectHideFlags: 0
@@ -337,7 +341,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b0a884f9c7ad646b459f680d339a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 0}
+  idleSprite: {fileID: -103711141, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   animationSprites:
   - {fileID: -103711141, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   - {fileID: 495010927, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
@@ -443,7 +447,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b0a884f9c7ad646b459f680d339a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 0}
+  idleSprite: {fileID: -1743008509, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   animationSprites:
   - {fileID: -1743008509, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   - {fileID: 2066978146, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
@@ -3241,7 +3245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b0a884f9c7ad646b459f680d339a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 0}
+  idleSprite: {fileID: -86036318, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   animationSprites:
   - {fileID: -86036318, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   - {fileID: -1250003560, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
@@ -3347,7 +3351,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1b0a884f9c7ad646b459f680d339a3a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idleSprite: {fileID: 0}
+  idleSprite: {fileID: -2073942462, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   animationSprites:
   - {fileID: -2073942462, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
   - {fileID: -1317647450, guid: 6acc43e76596f054e8f5980bb3d1edb2, type: 3}
