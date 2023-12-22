@@ -21,6 +21,7 @@ public class Destructible : MonoBehaviour
         {
             int randoIndex = Random.Range(0, spawnableItems.Length);
             Instantiate(spawnableItems[randoIndex], transform.position, Quaternion.identity);
+
         }
     }
 }
