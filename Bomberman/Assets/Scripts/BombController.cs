@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class BombController : MonoBehaviour
 {
@@ -16,6 +17,9 @@ public class BombController : MonoBehaviour
     public float explosionDurantion = 1f;
     public int explosionRadius = 1;
 
+    [Header("Destructible")]
+    public Tilemap destructibleTiles;
+    public Destructible destructiblePrefab;
     private void OnEnable()
     {
         bombsRemaining = bombAmount;
@@ -71,6 +75,12 @@ public class BombController : MonoBehaviour
         {
             other.isTrigger = false;
         }
+    }
+
+    public void AddBomb()
+    {
+        bombAmount++;
+        bombsRemaining ++;
     }
 
 }
