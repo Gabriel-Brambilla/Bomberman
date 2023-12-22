@@ -49,9 +49,21 @@ public class BombController : MonoBehaviour
         explosion.SetActiveRenderer(explosion.start);
         Destroy(explosion.gameObject, explosionDurantion);
 
+        this.Explode(position, Vector2.up, explosionRadius);
+        this.Explode(position, Vector2.down, explosionRadius);
+        this.Explode(position, Vector2.left, explosionRadius);
+        this.Explode(position, Vector2.right, explosionRadius);
+
+
         Destroy(bomb);
         bombsRemaining++;
     }
+
+    private void Explode(Vector2 position, Vector2 direction, int lenght)
+    {
+        
+    }
+
 
     private void OnTriggerExir2D(Collider2D other)
     {
