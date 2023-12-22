@@ -45,9 +45,9 @@ public class BombController : MonoBehaviour
         position.y = Mathf.Round(position.y);
 
 
-        //Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
-        //explosion.SetActiveRenderer(explosion.start);
-        //Destroy(explosion.gameObject, explosionDurantion);
+        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        explosion.SetActiveRenderer(explosion.start);
+        Destroy(explosion.gameObject, explosionDurantion);
 
         Destroy(bomb);
         bombsRemaining++;
