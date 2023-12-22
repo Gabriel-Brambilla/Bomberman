@@ -260,10 +260,15 @@ MonoBehaviour:
   inputKey: 32
   bombPrefab: {fileID: 8884124532144627105, guid: 2b5048087da272941bd29a0c298e7fb0, type: 3}
   bombFuseTime: 3
-  bombAmount: 1
+  bombAmount: 2
   explosionPrefab: {fileID: 8447030180526473374, guid: 1217ffa483a2a5b498138a6ca19649f9, type: 3}
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 64
   explosionDurantion: 1
   explosionRadius: 1
+  destructibleTiles: {fileID: 0}
+  destructiblePrefab: {fileID: 0}
 --- !u!1 &201658501
 GameObject:
   m_ObjectHideFlags: 0
@@ -578,7 +583,7 @@ GameObject:
   m_Component:
   - component: {fileID: 841520974}
   - component: {fileID: 841520973}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -757,8 +762,13 @@ MonoBehaviour:
   bombFuseTime: 3
   bombAmount: 1
   explosionPrefab: {fileID: 0}
+  explosionMask:
+    serializedVersion: 2
+    m_Bits: 0
   explosionDurantion: 1
   explosionRadius: 1
+  destructibleTiles: {fileID: 0}
+  destructiblePrefab: {fileID: 0}
 --- !u!114 &1378809250
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -873,7 +883,7 @@ GameObject:
   - component: {fileID: 1504782060}
   - component: {fileID: 1504782059}
   - component: {fileID: 1504782061}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Indestrutiveis
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3846,7 +3856,7 @@ GameObject:
   - component: {fileID: 2098495737}
   - component: {fileID: 2098495736}
   - component: {fileID: 2098495738}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Destrutiveis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

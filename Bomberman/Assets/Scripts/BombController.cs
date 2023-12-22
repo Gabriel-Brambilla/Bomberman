@@ -14,6 +14,7 @@ public class BombController : MonoBehaviour
 
     [Header("Explosion")]
     public Explosion explosionPrefab;
+    public LayerMask explosionMask;
     public float explosionDurantion = 1f;
     public int explosionRadius = 1;
 
@@ -51,7 +52,9 @@ public class BombController : MonoBehaviour
 
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(explosion.start);
+        explosion.DestroyAfter(explosionDurantion);
         Destroy(explosion.gameObject, explosionDurantion);
+
 
         this.Explode(position, Vector2.up, explosionRadius);
         this.Explode(position, Vector2.down, explosionRadius);
@@ -65,7 +68,20 @@ public class BombController : MonoBehaviour
 
     private void Explode(Vector2 position, Vector2 direction, int lenght)
     {
-        
+        if (lenght <= 0)
+            return;
+
+        position += direction;
+
+        if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionMask))
+            return;
+
+        Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
+        explosion.SetActiveRenderer(lenght > 1 ? explosion.middle : explosion.end);
+        explosion.SetDirection(direction);
+        explosion.DestroyAfter(explosionDurantion);
+
+        Explode(position, direction, lenght - 1);
     }
 
 
