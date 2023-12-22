@@ -74,7 +74,11 @@ public class BombController : MonoBehaviour
         position += direction;
 
         if (Physics2D.OverlapBox(position, Vector2.one / 2f, 0f, explosionMask))
+        {
+            ClearDestructible(position);
             return;
+        }
+
 
         Explosion explosion = Instantiate(explosionPrefab, position, Quaternion.identity);
         explosion.SetActiveRenderer(lenght > 1 ? explosion.middle : explosion.end);
@@ -98,5 +102,17 @@ public class BombController : MonoBehaviour
         bombAmount++;
         bombsRemaining ++;
     }
+
+    private void ClearDestructible(Vector2 position)
+    {
+        Vector3Int cell = destructibleTiles.WorldToCell(position);
+        TileBase tile = destructibleTiles.GetTile(cell);
+
+        if (tile != null)
+        {
+            Instantiate(destructiblePrefab, position, Quaternion.identity);
+            destructibleTiles.SetTile(cell, null);
+        }
+    }   
 
 }

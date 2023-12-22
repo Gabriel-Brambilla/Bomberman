@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8041371270989936955}
   - component: {fileID: 77434568641326566}
   - component: {fileID: 6883065798460120586}
+  - component: {fileID: -886950760512354335}
   m_Layer: 0
   m_Name: Destructible
   m_TagString: Untagged
@@ -155,3 +156,21 @@ MonoBehaviour:
   animationTime: 0.1666667
   loop: 0
   idle: 0
+--- !u!114 &-886950760512354335
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3916660185357904747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62e5900744987094fb7ae2969a6146ed, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  destructionTime: 1
+  itemSpawnChance: 1
+  spawnableItems:
+  - {fileID: 9093509319917374208, guid: c8a412991c7a28b4d90c507f4d5a3e51, type: 3}
+  - {fileID: 1558598589711997, guid: d7ef5989ccc81b34285cdb90f6f96bea, type: 3}
+  - {fileID: 256476249502792824, guid: fd5100f3444287d4ca508d5314b277df, type: 3}
