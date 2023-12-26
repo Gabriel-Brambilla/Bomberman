@@ -88,15 +88,6 @@ public class BombController : MonoBehaviour
         Explode(position, direction, lenght - 1);
     }
 
-
-    private void OnTriggerExir2D(Collider2D other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
-        {
-            other.isTrigger = false;
-        }
-    }
-
     public void AddBomb()
     {
         bombAmount++;
@@ -113,6 +104,14 @@ public class BombController : MonoBehaviour
             Instantiate(destructiblePrefab, position, Quaternion.identity);
             destructibleTiles.SetTile(cell, null);
         }
-    }   
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject.layer == LayerMask.NameToLayer("Bomb"))
+        {
+            other.isTrigger = false;
+        }
+    }
 
 }

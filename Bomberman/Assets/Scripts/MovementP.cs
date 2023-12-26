@@ -87,5 +87,6 @@ public class MovementP : MonoBehaviour
     private void OnDeathSequenceEnded()
     {
         gameObject.SetActive(false);
+        FindObjectOfType<GameManager>().CheckWinState();
     }
 }
